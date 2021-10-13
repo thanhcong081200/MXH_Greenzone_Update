@@ -8,7 +8,7 @@ namespace Greenzone.Controllers
 {
     public class MeetingController : Controller
     {
-        // GET: Meeting
+        //Test
         public ActionResult PhongHop()
         {
             return View();
