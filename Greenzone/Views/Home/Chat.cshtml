@@ -1,0 +1,632 @@
+﻿
+@{
+    Greenzone.Models.User user = (Greenzone.Models.User)Session["IDuser"];
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/assets/css/base.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Begin Header -->
+    <header>
+        <nav style="background-color:#34465d;" class="navbar fixed-top navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")" style="color:white;font-weight: bold;padding-left:30px;">
+                <img class="img-navbar" src="~/Content/assets/img/logo_2.png" alt="">
+                Social Media Greenzone
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="formSearch">
+                    <i class="icon-formSearch fas fa-search"></i>
+                    <input class="input-formSearch" type="text" placeholder="Tìm kiếm">
+                </div>
+                <ul style="position: relative;left:27%;" class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a id="icon-bell" class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="far fa-bell"></i><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="far fa-envelope"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="user-kb" class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="icon-tin-nhan" class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="fas fa-comment-dots"></i></a>
+                    </li>
+                </ul>
+                <div id="accountUser" class="accountUser" style="padding-right: 20px;">
+                    <img class="img-accountUser" src="~/Content/assets/img/@user.HinhAnh" alt="">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <div class="post-overlay"></div>
+
+    <!--Hover-->
+    <!-- Hover Thông báo -->
+    <div class="hover-thong-bao">
+        <div class="header-hover">
+            <span style="font-weight: 600;">5 Thông báo mới</span>
+            <span>Xem tất cả</span>
+        </div>
+        <div class="body-hover">
+            <ul class="body-hover-list">
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công1</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công2</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công3</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công4</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công5</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công6</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công7</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công8</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công9</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công10</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-hover">
+            <span>Xem tất cả</span>
+        </div>
+    </div>
+
+    <!-- Hover Kết Bạn -->
+    <div class="hover-ket-ban">
+        <div class="header-hover">
+            <span style="font-weight: 600;">5 yêu cầu kết bạn</span>
+            <span>Xem tất cả</span>
+        </div>
+        <div class="body-hover">
+            <ul class="body-hover-list">
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công1</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công2</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công3</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công4</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công5</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="footer-hover">
+            <span>Xem tất cả</span>
+        </div>
+    </div>
+
+    <!-- Hover Tin nhắn -->
+    <div class="hover-tin-nhan">
+        <div class="header-hover">
+            <span style="font-weight: 600;">5 tin nhắn chưa đọc</span>
+            <span>Xem tất cả</span>
+        </div>
+        <div class="body-hover">
+            <ul class="body-hover-list">
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công1</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 1</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công2</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 2</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công3</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 3</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công4</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 4</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công5</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 5</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công6</span>
+                        </div>
+                        <div>
+                            <span>Hellooooooooooooooooo</span>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="footer-hover">
+            <span>Xem tất cả</span>
+        </div>
+    </div>
+
+    <!--End Hover-->
+    <!-- Begin chat -->
+    <div class="column1">
+        <span style="text-align: center;text-transform: uppercase;">
+            <h5>
+                Chat Messages
+                <i class="fas fa-cog"></i>
+            </h5>
+        </span>
+        <div class="input-text">
+            <input type="text" class="input-chat" placeholder="Tìm kiếm bạn bè">
+        </div>
+
+
+        <!-- Menu left reponsive -->
+        <div class="left" style="display:none;">
+            <div class="menu-left">
+                <ul class="menu-list">
+                    <li class="menu-list-item">
+                        <div class="toggle">
+                            <a>
+                                <i class="icon-item fas fa-bars"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="@Url.Action("Index","Home")">
+                            <i style="margin-left:6px;" class="icon-item fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a>
+                            <i class="icon-item fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="@Url.Action("Chat","Home")">
+                            <i class="icon-item far fa-comment-dots"></i>
+                        </a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="@Url.Action("ThongBao","Home")">
+                            <i class="icon-item far fa-bell"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="wrapper">
+                <div class="sidebar">
+                    <a class="close-Menu" href="#">
+                        <i style="position:relative;left:90%;" class="icon-quit fas fa-times"></i>
+                    </a>
+                    <!-- profile -->
+                    <div class="profile">
+                        <img src="~/Content/assets/img/@user.HinhAnh" alt="">
+                        <h3>@user.FullName</h3>
+                    </div>
+                    <!-- Menu -->
+                    <ul>
+                        <li>
+                            <a style="text-decoration: none;" href="@Url.Action("Index","Home")">
+                                <span class="icon"><i class="fas fa-home"></i></span>
+                                <span class="item">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="@Url.Action("TrangCaNhan","Home")">
+                                <span class="icon"><i class="fas fa-user"></i></span>
+                                <span class="item">Trang cá nhân</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;">
+                                <span class="icon"><i class="fas fa-users"></i></span>
+                                <span class="item">Bạn bè</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;">
+                                <span class="icon"><i class="fas fa-cog"></i></span>
+                                <span class="item">Cài đặt</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="@Url.Action("Logout","Home")">
+                                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="item">Đăng xuất</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Chat -->
+        <div class="list-chat">
+            <br>
+            <div class="list-chat-control">
+                <select style="outline:none;border-radius: 30px;">
+                    <option>Tất cả tin nhắn</option>
+                    <option>Chỉ tin nhắn chưa đọc</option>
+                    <option>Chỉ tin nhắn từ người lạ</option>
+                </select>
+                <a href="#">Đánh dấu đã đọc</a>
+            </div>
+            <ul class="list-list-chat">
+                <!--List chat javascript-->
+            </ul>
+        </div>
+    </div>
+    <div class="column2" id="chat-item">
+        <!--Chat javascript-->
+    </div>
+    <!-- End chat -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyB_MXMdLMs2kg8eJUuKbo18H9WU8QcTxn8",
+            authDomain: "greenzone-7a445.firebaseapp.com",
+            databaseURL: "https://greenzone-7a445-default-rtdb.firebaseio.com",
+            projectId: "greenzone-7a445",
+            storageBucket: "greenzone-7a445.appspot.com",
+            messagingSenderId: "526068222639",
+            appId: "1:526068222639:web:38eb95edef0d46bb74a25a",
+            measurementId: "G-B22LXRRMMZ"
+        };
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+        database.ref("Groups").on('child_added', function (snapshot) {
+            var group = snapshot.val();
+            loadGroup(group.idGroup, group.tenGroup, group.idMesCuoi)
+
+        });
+        database.ref("Groups").on('child_changed', function (snapshot) {
+            var group = snapshot.val();
+            hienthichat(group.idGroup);
+
+        });
+        function loadGroup(id, name, text) {
+            $(".list-list-chat").append('<li class="list-chat-item" id="item_' + id + '" onclick="hienthichat(\'' + id + '\')">\
+                                    <img style="width:40px;height:40px;border-radius:30px;" src="https://firebasestorage.googleapis.com/v0/b/greenzone-7a445.appspot.com/o/hieu.jpg?alt=media&token=31bc3e6e-06db-4e00-b7ae-e2375ce117b0" alt="">\
+                                    <span style="font-size:16px;font-weight: 600;">'+ name + '</span>\
+                                </li>');
+        }
+        function hienthichat(idgroup) {
+            database.ref("Groups/" + idgroup).on('value', function (snapshot) {
+                var group = snapshot.val();
+                var Noidung1 = document.getElementById("chat-item");
+                Noidung1.innerHTML = "";
+                $("#chat-item").append('<div class="header-name">\
+                                <div>\
+                                    <img style="width:80px;height:80px;border-radius: 50px;" src="https://firebasestorage.googleapis.com/v0/b/greenzone-7a445.appspot.com/o/hieu.jpg?alt=media&token=31bc3e6e-06db-4e00-b7ae-e2375ce117b0" alt="">\
+                                    <span style="font-size:20px;font-weight: 600;padding-left:10px;"id="groupname"></span>\
+                                </div>\
+                                <div class="icon-chat">\
+                                    <i class="icon-chat-item fas fa-phone-alt"></i>\
+                                    <i class="icon-chat-item fas fa-video"></i>\
+                                    <i class="icon-chat-item1 fas fa-times"></i>\
+                                </div>\
+                                </div>\
+                                <div id="DoanChat" class="body-name"></div>\
+                                <div class="footer-name">\
+                                <div>\
+                                    <div class="icon-chat">\
+                                        <i class="icon-chat-item fas fa-file-upload"></i>\
+                                        <i class="icon-chat-item fas fa-image"></i>\
+                                        <i class="icon-chat-item fas fa-smile-beam"></i>\
+                                    </div>\
+                                </div>\
+                                </div>\
+                                <div class="fill-input">\
+                                    <input type="text" placeholder="Nhập tin nhắn tới Thanh Công" value="">\
+                                </div>\
+                        </div>');
+                $("#groupname").text(group.tenGroup);
+            });
+            XoaND();
+            database.ref("Messages/" + idgroup).on('child_added', function (snapshot) {
+                var mess = snapshot.val();
+                loadMess(mess.usercreate, mess.text);
+                // database.ref("Users").once('value', (snapshot) => {
+                // snapshot.forEach((childSnapshot) => {
+                //     var childKey = childSnapshot.key;
+                //     var childData = childSnapshot.val();
+                //     if(childKey==mess.usercreate)
+                //         loadMess(childData.ten, mess.text);
+                // })
+            });
+            //});
+        }
+        function loadMess(name, text) {
+            if (name == "0397330562")
+                $('<div class="to"/>').prepend($('<span class="msg-to"/>').text(text)).appendTo($("#DoanChat"));
+            else
+                $('<div class="from"/>').prepend($('<span class="msg-from"/>').text(text)).appendTo($("#DoanChat"));
+            $(".body-name")[0].scrollTop = $(".body-name")[0].scrollHeight;
+        }
+        function XoaND() {
+            var Noidung1 = document.getElementById("DoanChat");
+            Noidung1.innerHTML = "";
+        }
+    </script>
+
+    <script>
+        //Open/Close Menu
+        $(".toggle").on("click", function () {
+            $(".left").addClass("open");
+        })
+        $(".close-Menu").on("click", function () {
+            $(".left").removeClass("open");
+        })
+
+        //Add Class menu
+        $(".toggle").on("click", function () {
+            $(".left").addClass("add");
+        })
+        $(".close-Menu").on("click", function () {
+            $(".left").removeClass("add");
+        })
+        //Open/Close Chat on mobile
+        $("body").on("click", ".list-chat-item", function () {
+            $(".column2").addClass("click");
+        })
+        $("body").on("click", ".icon-chat-item1", function () {
+            $(".column2").removeClass("click");
+        })
+    </script>
+    <!-- Sự kiện Click / và biến mất -->
+    <script>
+        $("#icon-bell").click(function () {
+            $(".post-overlay").addClass("index");
+        })
+        $("#user-kb").click(function () {
+            $(".post-overlay").addClass("index");
+        })
+        $("#icon-tin-nhan").click(function () {
+            $(".post-overlay").addClass("index");
+        })
+        $(".post-overlay").not("#icon-bell").click(function () {
+            $(".post-overlay").removeClass("index");
+        })
+
+
+        // Icon-bell
+        $(document).ready(function () {
+            $("#icon-bell").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".hover-thong-bao").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+        $(document).ready(function () {
+            $("#icon-bell").click(function (event) {
+                event.stopPropagation();
+                $(".hover-thong-bao").fadeIn(500);
+                $(".hover-ket-ban").fadeOut(500);
+                $(".hover-tin-nhan").fadeOut(500);
+            });
+            $(".hover-thong-bao").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".hover-thong-bao").fadeOut(500);
+        });
+
+
+
+        // User KB
+        $(document).ready(function () {
+            $("#user-kb").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".hover-ket-ban").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+        $(document).ready(function () {
+            $("#user-kb").click(function (event) {
+                event.stopPropagation();
+                $(".hover-ket-ban").fadeIn(500);
+                $(".hover-tin-nhan").fadeOut(500);
+            });
+            $(".hover-ket-ban").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".hover-ket-ban").fadeOut(500);
+        });
+
+        // Icon-tin-nhan
+        $(document).ready(function () {
+            $("#icon-tin-nhan").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".hover-tin-nhan").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+        $(document).ready(function () {
+            $("#icon-tin-nhan").click(function (event) {
+                event.stopPropagation();
+                $(".hover-tin-nhan").fadeIn(500);
+            });
+            $(".hover-tin-nhan").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".hover-tin-nhan").fadeOut(500);
+        });
+    </script>
+</body>
+</html>
+

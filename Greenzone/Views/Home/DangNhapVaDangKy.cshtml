@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "DangNhapVaDangKy";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chào mừng đến với Greenzone</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/assets/css/DN_DK.css" />
+    <!-- Fontawesome CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/assets/font/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet" />
+    <!--Hiển thị thông báo đẹp-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div class="row">
+            <!-- ĐĂNG KÝ -->
+            <div style="position: relative;left:8%;width:100%;" class="col align-items-center flex-col sign-up">
+                <div class="form-wrapper align-items-center">
+                    <div class="form1 sign-up">
+                        <form action="@Url.Action("DangKy","Home")" method="post">
+                            <div class="input-group">
+                                <i class="fas fa-mobile-alt"></i>
+                                <input type="text" name="sdt" id="SDT" required="true" placeholder="Số điện thoại">
+                            </div>
+                            <div class="input-group">
+                                <i class='bx bxs-user'></i>
+                                <input type="text" name="fullname" id="FULLNAME" required="true" placeholder="Họ và tên">
+                            </div>
+                            <div class="input-group">
+                                <i class='bx bx-mail-send'></i>
+                                <input type="email" name="email" id="EMAIL" required="true" placeholder="Email">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" name="quequan" id="QUEQUAN" required="true" placeholder="Quê quán">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-venus-mars"></i>
+                                <select class="form-control" name="gioitinh" id="GIOITINH" required="true">
+                                    <option>Giới tính</option>
+                                    <option value="Nam">Nam</option>
+                                    <option value="Nữ">Nữ</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <i class="far fa-calendar-alt"></i>
+                                <input type="text" name="ngaysinh" id="NGAYSINH" required="true" placeholder="Ngày sinh">
+                            </div>
+                            <div class="input-group">
+                                <i class='bx bxs-lock-alt'></i>
+                                <input type="password" name="password" id="MK" required="true" placeholder="Mật khẩu">
+                            </div>
+                            <button type="submit" id="submitCreate" class="btn">
+                                Đăng ký
+                            </button>
+                            <p>
+                                <span>
+                                    Bạn có tài khoản rồi hả?
+                                </span>
+                                <b onclick="toggle()" class="pointer">
+                                    Đăng nhập tại đây
+                                </b>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END ĐĂNG KÝ -->
+            <!-- ĐĂNG NHẬP -->
+            <div class="col align-items-center flex-col sign-in">
+                <div class="form-wrapper align-items-center">
+                    <div class="form sign-in">
+                        <form action="@Url.Action("DangNhap","Home")" method="post">
+                            @if (@ViewData["Loi"] != null)
+                            {
+                                <!--Hiển thị thông báo sai khi sai tài khoản và mật khẩu-->
+                                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+                                        swal({
+                                            title: "Thông Báo",
+                                            text: "Sai thông tin tài khoản và mật khẩu",
+                                            type: "error",
+                                            confirmButtonClass: "btn-primary",
+                                            confirmButtonText: "OK",
+                                            closeOnConfirm: true,
+                                        })
+                                    })
+                                </script>
+                            }
+                            <img style="height:100px;" src="~/Content/assets/img/logo_2.png">
+                            <h3 class="title">Welcome to</h3>
+                            <h2 style="color: rgb(61 197 56 / 80%);" class="title">Greenzone</h2>
+                            <div class="input-group">
+                                <i class="fas fa-mobile-alt"></i>
+                                <input type="text" name="Username" required="true" placeholder="Số điện thoại">
+                            </div>
+                            <div class="input-group">
+                                <i class='bx bxs-lock-alt'></i>
+                                <input type="password" name="Password" required="true" placeholder="Mật khẩu">
+                            </div>
+                            <a>Quên mật khẩu?</a>
+                            <input type="submit" class="btn" value="Login">
+                            <a class="btn btn1" onclick="toggle()" style="color:white;text-decoration:none;line-height:41px;text-align: center;">Tạo mới tài khoản</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END ĐĂNG NHẬP -->
+        </div>
+        <div class="row content-row">
+            <!-- ẢNH ĐĂNG NHẬP -->
+            <div class="col align-items-center flex-col">
+                <div class="img sign-in">
+                    <img style="position: relative;left:3%;" src="~/Content/assets/img/chat.svg" alt="welcome">
+                </div>
+            </div>
+            <!-- END ẢNH ĐĂNG NHẬP -->
+            <!-- ẢNH ĐĂNG KÝ -->
+            <div class="col align-items-center flex-col">
+                <div class="img sign-up">
+                    <img style="position: relative;right:-10%;" src="~/Content/assets/img/create.svg" alt="welcome">
+                </div>
+            </div>
+            <!-- END ẢNH ĐĂNG KÝ -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script>
+        let container = document.getElementById('container')
+
+        toggle = () => {
+            container.classList.toggle('sign-in')
+            container.classList.toggle('sign-up')
+        }
+
+        setTimeout(() => {
+            container.classList.add('sign-in')
+        }, 200)
+    </script>
+    <script>
+        const inputs = document.querySelectorAll(".input");
+
+
+        function addcl() {
+            let parent = this.parentNode.parentNode;
+            parent.classList.add("focus");
+        }
+
+        function remcl() {
+            let parent = this.parentNode.parentNode;
+            if (this.value == "") {
+                parent.classList.remove("focus");
+            }
+        }
+
+
+        inputs.forEach(input => {
+            input.addEventListener("focus", addcl);
+            input.addEventListener("blur", remcl);
+        });
+    </script>
+    <script>
+        //var SDT = document.querySelector("#SDT");
+        //var FULLNAME = document.querySelector("#FULLNAME");
+        //var EMAIL = document.querySelector("#EMAIL");
+        //var QUEQUAN = document.querySelector("#QUEQUAN");
+        //var GIOITINH = document.querySelector("#GIOITINH");
+        //var NGAYSINH = document.querySelector("#NGAYSINH");
+        //var MATKHAU = document.querySelector("#MATKHAU");
+       
+        var button4 = document.querySelector("#submitCreate");
+
+        button4.onclick = function () {
+            swal({
+                title: "Thông báo",
+                text: "Đăng ký thành công",
+                type: "success",
+                confirmButtonClass: "btn-primary",
+                confirmButtonText: "OK",
+                closeOnConfirm: true,
+            })
+        }
+    </script>
+</body>
+</html>
+

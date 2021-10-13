@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MXH_GreenZone" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-NQCRER1;Initial Catalog=MXH_GreenZone;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MXH_GreenZoneConnectionString3" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BaiViet" Member="BaiViets">
+    <Type Name="BaiViet">
+      <Column Name="idBaiViet" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Noidung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Video" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="CheDo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LuotLike" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LuotShare" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LuotComment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NgayDang" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idGroup_Page" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idBaiVietShare" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="BaiViet_Comment" Member="Comments" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="Comment" />
+      <Association Name="BaiViet_Like" Member="Likes" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="Like" />
+      <Association Name="BaiViet_Share" Member="Shares" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="Share" />
+      <Association Name="BaiViet_TagBaiViet" Member="TagBaiViets" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="TagBaiViet" />
+      <Association Name="BaiViet_ThongBao" Member="ThongBaos" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="ThongBao" />
+      <Association Name="Group_page_BaiViet" Member="Group_page" ThisKey="idGroup_Page" OtherKey="idGoup" Type="Group_page" IsForeignKey="true" />
+      <Association Name="User_BaiViet" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VideoCuocHop" Member="VideoCuocHops">
+    <Type Name="VideoCuocHop">
+      <Column Name="idVideo" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idPhongHop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Video" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ThoiGianBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiGianKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiLuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="PhongHop_VideoCuocHop" Member="PhongHop" ThisKey="idPhongHop" OtherKey="idPhongHop" Type="PhongHop" IsForeignKey="true" />
+      <Association Name="User_VideoCuocHop" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BanBe" Member="BanBes">
+    <Type Name="BanBe">
+      <Column Name="idUser1" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser2" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ThoiGian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="User_BanBe" Member="User" ThisKey="idUser1" OtherKey="idUser" Type="User" IsForeignKey="true" />
+      <Association Name="User_BanBe1" Member="User1" ThisKey="idUser2" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Calls" Member="Calls">
+    <Type Name="Call">
+      <Column Name="idCall" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThoiGianBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiGianKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiLuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Group_Call" Member="Group" ThisKey="idGroup" OtherKey="idGroup" Type="Group" IsForeignKey="true" />
+      <Association Name="User_Call" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comment" Member="Comments">
+    <Type Name="Comment">
+      <Column Name="idCmt" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idBaiViet" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ThoiGian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TraloiCmt" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Comment_Comment" Member="Comments" ThisKey="idCmt" OtherKey="TraloiCmt" Type="Comment" />
+      <Association Name="Comment_ThongBao" Member="ThongBaos" ThisKey="idCmt" OtherKey="idCmt" Type="ThongBao" />
+      <Association Name="BaiViet_Comment" Member="BaiViet" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="BaiViet" IsForeignKey="true" />
+      <Association Name="Comment_Comment" Member="Comment1" ThisKey="TraloiCmt" OtherKey="idCmt" Type="Comment" IsForeignKey="true" />
+      <Association Name="User_Comment" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Group_page" Member="Group_pages">
+    <Type Name="Group_page">
+      <Column Name="idGoup" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GoupName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idUserHost" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AnhDaiDien" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AnhBia" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgayLap" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GioiThieu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Group_page_BaiViet" Member="BaiViets" ThisKey="idGoup" OtherKey="idGroup_Page" Type="BaiViet" />
+      <Association Name="Group_page_User_Group_Page" Member="User_Group_Pages" ThisKey="idGoup" OtherKey="idGroup_Page" Type="User_Group_Page" />
+      <Association Name="User_Group_page" Member="User" ThisKey="idUserHost" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Group_Sticker" Member="Group_Stickers">
+    <Type Name="Group_Sticker">
+      <Column Name="idGroup_Sticker" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgayTao" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Group_Sticker_Sticker" Member="Stickers" ThisKey="idGroup_Sticker" OtherKey="idGroup_Sticker" Type="Sticker" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ThoiGianTao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idUserQL" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="AnhNen" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="AnhDaiDien" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SoThanhVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Group_Call" Member="Calls" ThisKey="idGroup" OtherKey="idGroup" Type="Call" />
+      <Association Name="Group_Message" Member="Messages" ThisKey="idGroup" OtherKey="idGroup" Type="Message" />
+      <Association Name="Group_User_Group" Member="User_Groups" ThisKey="idGroup" OtherKey="idGroup" Type="User_Group" />
+      <Association Name="User_Group" Member="User" ThisKey="idUserQL" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Likes" Member="Likes">
+    <Type Name="Like">
+      <Column Name="idBaiViet" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="BaiViet_Like" Member="BaiViet" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="BaiViet" IsForeignKey="true" />
+      <Association Name="User_Like" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Messages" Member="Messages">
+    <Type Name="Message">
+      <Column Name="idMess" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TLMess" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Message_Message" Member="Messages" ThisKey="idMess" OtherKey="TLMess" Type="Message" />
+      <Association Name="Group_Message" Member="Group" ThisKey="idGroup" OtherKey="idGroup" Type="Group" IsForeignKey="true" />
+      <Association Name="Message_Message" Member="Message1" ThisKey="TLMess" OtherKey="idMess" Type="Message" IsForeignKey="true" />
+      <Association Name="Type_Message" Member="Type" ThisKey="idType" OtherKey="idType" Type="Type" IsForeignKey="true" />
+      <Association Name="User_Message" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+      <Association Name="User_Message1" Member="User1" ThisKey="idGroup" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Messages_PhongHop" Member="Messages_PhongHops">
+    <Type Name="Messages_PhongHop">
+      <Column Name="idMes" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idPhongHop" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="idType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TLMess" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Messages_PhongHop_Messages_PhongHop" Member="Messages_PhongHops" ThisKey="idMes" OtherKey="TLMess" Type="Messages_PhongHop" />
+      <Association Name="Messages_PhongHop_Messages_PhongHop" Member="Messages_PhongHop1" ThisKey="TLMess" OtherKey="idMes" Type="Messages_PhongHop" IsForeignKey="true" />
+      <Association Name="PhongHop_Messages_PhongHop" Member="PhongHop" ThisKey="idPhongHop" OtherKey="idPhongHop" Type="PhongHop" IsForeignKey="true" />
+      <Association Name="Type_Messages_PhongHop" Member="Type" ThisKey="idType" OtherKey="idType" Type="Type" IsForeignKey="true" />
+      <Association Name="User_Messages_PhongHop" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhongHop" Member="PhongHops">
+    <Type Name="PhongHop">
+      <Column Name="idPhongHop" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ThoiGianBD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiGianKT" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TenPhongHop" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SoThanhVien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PhongHop_VideoCuocHop" Member="VideoCuocHops" ThisKey="idPhongHop" OtherKey="idPhongHop" Type="VideoCuocHop" />
+      <Association Name="PhongHop_Messages_PhongHop" Member="Messages_PhongHops" ThisKey="idPhongHop" OtherKey="idPhongHop" Type="Messages_PhongHop" />
+      <Association Name="PhongHop_User_TGHop" Member="User_TGHops" ThisKey="idPhongHop" OtherKey="idPhongHop" Type="User_TGHop" />
+      <Association Name="User_PhongHop" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shares" Member="Shares">
+    <Type Name="Share">
+      <Column Name="idBaiViet" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="BaiViet_Share" Member="BaiViet" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="BaiViet" IsForeignKey="true" />
+      <Association Name="User_Share" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stickers" Member="Stickers">
+    <Type Name="Sticker">
+      <Column Name="idSticker" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idGroup_Sticker" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Group_Sticker_Sticker" Member="Group_Sticker" ThisKey="idGroup_Sticker" OtherKey="idGroup_Sticker" Type="Group_Sticker" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TagBaiViet" Member="TagBaiViets">
+    <Type Name="TagBaiViet">
+      <Column Name="idBaiViet" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="BaiViet_TagBaiViet" Member="BaiViet" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="BaiViet" IsForeignKey="true" />
+      <Association Name="User_TagBaiViet" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Types" Member="Types">
+    <Type Name="Type">
+      <Column Name="idType" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NameType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Type_Message" Member="Messages" ThisKey="idType" OtherKey="idType" Type="Message" />
+      <Association Name="Type_Messages_PhongHop" Member="Messages_PhongHops" ThisKey="idType" OtherKey="idType" Type="Messages_PhongHop" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThongBao" Member="ThongBaos">
+    <Type Name="ThongBao">
+      <Column Name="idThongBao" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NoiDung" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idUserNhan" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idUserGoi" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idBaiViet" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="idCmt" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ThoiGian" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="BaiViet_ThongBao" Member="BaiViet" ThisKey="idBaiViet" OtherKey="idBaiViet" Type="BaiViet" IsForeignKey="true" />
+      <Association Name="Comment_ThongBao" Member="Comment" ThisKey="idCmt" OtherKey="idCmt" Type="Comment" IsForeignKey="true" />
+      <Association Name="User_ThongBao" Member="User" ThisKey="idUserNhan" OtherKey="idUser" Type="User" IsForeignKey="true" />
+      <Association Name="User_ThongBao1" Member="User1" ThisKey="idUserGoi" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_Group" Member="User_Groups">
+    <Type Name="User_Group">
+      <Column Name="idGroup" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Group_User_Group" Member="Group" ThisKey="idGroup" OtherKey="idGroup" Type="Group" IsForeignKey="true" />
+      <Association Name="User_User_Group" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_Group_Page" Member="User_Group_Pages">
+    <Type Name="User_Group_Page">
+      <Column Name="idGroup_Page" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Group_page_User_Group_Page" Member="Group_page" ThisKey="idGroup_Page" OtherKey="idGoup" Type="Group_page" IsForeignKey="true" />
+      <Association Name="User_User_Group_Page" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_TGHop" Member="User_TGHops">
+    <Type Name="User_TGHop">
+      <Column Name="idPhongHop" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TrangThaiMic" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TrangThaiCam" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PhongHop_User_TGHop" Member="PhongHop" ThisKey="idPhongHop" OtherKey="idPhongHop" Type="PhongHop" IsForeignKey="true" />
+      <Association Name="User_User_TGHop" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserConnection" Member="UserConnections">
+    <Type Name="UserConnection">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ConnectionId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="User_UserConnection" Member="User" ThisKey="idUser" OtherKey="idUser" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="idUser" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HinhAnh" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="isOnline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="QueQuan" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AnhBia" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SoBanBe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="User_BaiViet" Member="BaiViets" ThisKey="idUser" OtherKey="idUser" Type="BaiViet" />
+      <Association Name="User_VideoCuocHop" Member="VideoCuocHops" ThisKey="idUser" OtherKey="idUser" Type="VideoCuocHop" />
+      <Association Name="User_BanBe" Member="BanBes" ThisKey="idUser" OtherKey="idUser1" Type="BanBe" />
+      <Association Name="User_BanBe1" Member="BanBes1" ThisKey="idUser" OtherKey="idUser2" Type="BanBe" />
+      <Association Name="User_Call" Member="Calls" ThisKey="idUser" OtherKey="idUser" Type="Call" />
+      <Association Name="User_Comment" Member="Comments" ThisKey="idUser" OtherKey="idUser" Type="Comment" />
+      <Association Name="User_Group_page" Member="Group_pages" ThisKey="idUser" OtherKey="idUserHost" Type="Group_page" />
+      <Association Name="User_Group" Member="Groups" ThisKey="idUser" OtherKey="idUserQL" Type="Group" />
+      <Association Name="User_Like" Member="Likes" ThisKey="idUser" OtherKey="idUser" Type="Like" />
+      <Association Name="User_Message" Member="Messages" ThisKey="idUser" OtherKey="idUser" Type="Message" />
+      <Association Name="User_Message1" Member="Messages1" ThisKey="idUser" OtherKey="idGroup" Type="Message" />
+      <Association Name="User_Messages_PhongHop" Member="Messages_PhongHops" ThisKey="idUser" OtherKey="idUser" Type="Messages_PhongHop" />
+      <Association Name="User_PhongHop" Member="PhongHops" ThisKey="idUser" OtherKey="idUser" Type="PhongHop" />
+      <Association Name="User_Share" Member="Shares" ThisKey="idUser" OtherKey="idUser" Type="Share" />
+      <Association Name="User_TagBaiViet" Member="TagBaiViets" ThisKey="idUser" OtherKey="idUser" Type="TagBaiViet" />
+      <Association Name="User_ThongBao" Member="ThongBaos" ThisKey="idUser" OtherKey="idUserNhan" Type="ThongBao" />
+      <Association Name="User_ThongBao1" Member="ThongBaos1" ThisKey="idUser" OtherKey="idUserGoi" Type="ThongBao" />
+      <Association Name="User_User_Group" Member="User_Groups" ThisKey="idUser" OtherKey="idUser" Type="User_Group" />
+      <Association Name="User_User_Group_Page" Member="User_Group_Pages" ThisKey="idUser" OtherKey="idUser" Type="User_Group_Page" />
+      <Association Name="User_User_TGHop" Member="User_TGHops" ThisKey="idUser" OtherKey="idUser" Type="User_TGHop" />
+      <Association Name="User_UserConnection" Member="UserConnections" ThisKey="idUser" OtherKey="idUser" Type="UserConnection" />
+    </Type>
+  </Table>
+</Database>

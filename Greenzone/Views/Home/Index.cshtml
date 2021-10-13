@@ -1,0 +1,1101 @@
+﻿@{
+    Greenzone.Models.User user = (Greenzone.Models.User)Session["IDuser"];
+}
+@using Greenzone.Models;
+@model dynamic
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/assets/css/base.css">
+    <!-- Fontawesome CSS -->
+    <link href="~/Content/assets/font/fontawesome-free-5.15.3-web/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
+
+</head>
+<body>
+    <div class="wavy-wraper">
+        <div class="wavy">
+            <img style="width:100px;height:100px;" src="~/Content/assets/img/logo_2.png" alt="">
+            <span style="--i:1;">G</span>
+            <span style="--i:2;">r</span>
+            <span style="--i:3;">e</span>
+            <span style="--i:4;">e</span>
+            <span style="--i:5;">n</span>
+            <span style="--i:6;">z</span>
+            <span style="--i:7;">o</span>
+            <span style="--i:8;">n</span>
+            <span style="--i:9;">e</span>
+            <span style="--i:10;">.</span>
+            <span style="--i:11;">.</span>
+        </div>
+    </div>
+    <!-- Begin Header -->
+    <header>
+        <nav style="background-color:#34465d;" class="navbar fixed-top navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="@Url.Action("Index","Home")" style="color:white;font-weight: bold;padding-left:30px;">
+                <img class="img-navbar" src="~/Content/assets/img/logo_2.png" alt="">
+                Social Media Greenzone
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="formSearch">
+                    <i class="icon-formSearch fas fa-search"></i>
+                    <input class="input-formSearch" type="text" placeholder="Tìm kiếm">
+                </div>
+                <ul style="position: relative;left:27%;" class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a id="icon-bell" class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="far fa-bell"></i><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="far fa-envelope"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="user-kb" class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="fas fa-user"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="icon-tin-nhan" class="nav-link" style="color:white;font-weight: bold;font-size:20px;"><i class="fas fa-comment-dots"></i></a>
+                    </li>
+                </ul>
+                <div id="accountUser" class="accountUser" style="padding-right: 20px;">
+                    <img class="img-accountUser" src="~/Content/assets/img/@user.HinhAnh" alt="">
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header -->
+    <!--Hover-->
+    <!-- Hover Thông báo -->
+    <div class="hover-thong-bao">
+        <div class="header-hover">
+            <span style="font-weight: 600;">5 Thông báo mới</span>
+            <span>Xem tất cả</span>
+        </div>
+        <div class="body-hover">
+            <ul class="body-hover-list">
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công1</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công2</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công3</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công4</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công5</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công6</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công7</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công8</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công9</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span style="font-weight:700;">Thanh Công10</span>
+                        <span>đã thích ảnh của bạn</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-hover">
+            <span>Xem tất cả</span>
+        </div>
+    </div>
+
+    <!-- Hover Kết Bạn -->
+    <div class="hover-ket-ban">
+        <div class="header-hover">
+            <span style="font-weight: 600;">5 yêu cầu kết bạn</span>
+            <span>Xem tất cả</span>
+        </div>
+        <div class="body-hover">
+            <ul class="body-hover-list">
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công1</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công2</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công3</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công4</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <span>Thanh Công5</span>
+                        <span>đã gửi lời mời kết bạn</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="footer-hover">
+            <span>Xem tất cả</span>
+        </div>
+    </div>
+
+    <!-- Hover Tin nhắn -->
+    <div class="hover-tin-nhan">
+        <div class="header-hover">
+            <span style="font-weight: 600;">5 tin nhắn chưa đọc</span>
+            <span>Xem tất cả</span>
+        </div>
+        <div class="body-hover">
+            <ul class="body-hover-list">
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công1</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 1</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công2</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 2</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công3</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 3</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công4</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 4</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công5</span>
+                        </div>
+                        <div>
+                            <span>Bạn làm gì đấy 5</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="body-hover-item">
+                    <img style="width:40px;height:40px;border-radius:30px;" src="/tanhieu.jpg" alt="">
+                    <div style="padding-left:8px">
+                        <div>
+                            <span>Thanh Công6</span>
+                        </div>
+                        <div>
+                            <span>Hellooooooooooooooooo</span>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="footer-hover">
+            <span>Xem tất cả</span>
+        </div>
+    </div>
+
+    <!--End Hover-->
+    <!-- Begin Content -->
+    <content>
+        <!-- Begin Left -->
+        <div class="left">
+            <div class="menu-left">
+                <ul class="menu-list">
+                    <li class="menu-list-item">
+                        <div class="toggle">
+                            <a>
+                                <i class="icon-item fas fa-bars"></i>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="@Url.Action("Index","Home")">
+                            <i style="margin-left:6px;" class="icon-item fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="#">
+                            <i class="icon-item fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="@Url.Action("Chat","Home")">
+                            <i class="icon-item far fa-comment-dots"></i>
+                        </a>
+                    </li>
+                    <li class="menu-list-item">
+                        <a href="@Url.Action("ThongBao","Home")">
+                            <i class="icon-item far fa-bell"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="wrapper">
+                <div class="sidebar">
+                    <a class="close-Menu">
+                        <i style="position:relative;left:90%;" class="icon-quit fas fa-times"></i>
+                    </a>
+                    <!-- profile -->
+                    <div class="profile">
+                        <img src="~/Content/assets/img/@user.HinhAnh" alt="">
+                        <h3>@user.FullName</h3>
+                    </div>
+                    <!-- Menu -->
+                    <ul>
+                        <li>
+                            <a style="text-decoration: none;" href="@Url.Action("Index","Home")">
+                                <span class="icon"><i class="fas fa-home"></i></span>
+                                <span class="item">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="@Url.Action("TrangCaNhan","Home")">
+                                <span class="icon"><i class="fas fa-user"></i></span>
+                                <span class="item">Trang cá nhân</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="#">
+                                <span class="icon"><i class="fas fa-users"></i></span>
+                                <span class="item">Bạn bè</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="#">
+                                <span class="icon"><i class="fas fa-cog"></i></span>
+                                <span class="item">Cài đặt</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a style="text-decoration: none;" href="@Url.Action("Logout","Home")">
+                                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="item">Đăng xuất</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Left -->
+
+        <div class="post-overlay"></div>
+
+        <!-- Begin Middle -->
+        <div class="middle">
+            <div class="middle-col1">
+                <div class="header-ketban">
+                    <div>
+                        <i class="far fa-bell"></i>
+                        <span style="font-size: 15px;font-weight: 600;">Quảng cáo</span>
+                    </div>
+                    <div>
+                        <i style="font-size:15px;font-weight:600;" class="fas fa-cog"></i>
+                    </div>
+                </div>
+                <div class="body-ketban">
+                    <img style="width:100%;height:250px;padding:10px 25px;" src="~/Content/assets/img/ad-widget.gif" alt="">
+                </div>
+                <br>
+                <div class="header-ketban">
+                    <div>
+                        <i class="fas fa-birthday-cake"></i>
+                        <span style="font-size: 15px;font-weight: 600;">Sinh nhật</span>
+                    </div>
+                    <div>
+                        <i style="font-size:15px;font-weight:600;" class="fas fa-cog"></i>
+                    </div>
+                </div>
+                <div class="body-ketban">
+                    <div style="background:#7750f8 none repeat scroll 0 0;padding:10px 16px;">
+                        <img class="KB-img" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                        <span style="font-weight: 500;color:white;">Thanh Công</span>
+                        <span style="font-weight: 500;color:white;">08/12/2000</span>
+                    </div>
+                    <div style="background-image: url('/Content/assets/img/dob2.png'); background-position: center center; background-repeat: no-repeat; background-size: cover; height: 290px;">
+                        <div>
+                            <img style="width:150px; height:150px;margin-top:82px;margin-left:53px;" src="~/Content/assets/img/dob-cake.gif" alt="">
+                        </div>
+                        <div style="text-align: center; margin-top: 15px; padding: 10px 2px; background: white; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; border-bottom: 1px solid #ced4da; border-left: 1px solid #ced4da; border-right: 1px solid #ced4da; ">
+                            <span style="font-weight: 600;color:#535165">Hôm nay sinh nhật<b style="font-weight: 600;color:orangered"> Thanh Công</b></span>
+                            <br>
+                            <span style="font-weight: 600;color:#535165">Gửi lời chúc tốt đẹp đến cho bạn đấy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-col2">
+                <div class="middle-right">
+                    <div class="middle-list-post">
+                        <span class="title-post">Tạo mới bài viết</span>
+                        <div class="middle-list-infoUser">
+                            <div>
+                                <img class="middle-list-post-img" src="~/Content/assets/img/@user.HinhAnh" alt="">
+                            </div>
+                            <div class="middle-list-infoUserActivity">
+                                <div>
+                                    <span style="font-weight: bold;">@user.FullName</span>
+                                </div>
+                                <select id="selectCheDo" style="outline:none;border:none;">
+                                    <option>Công khai</option>
+                                    <option>Chỉ mình tôi</option>
+                                    <option>Bạn bè</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="middle-list-body">
+                            <textarea class="middle-list-text" name="" id="textarea" cols="30" rows="10" placeholder="Hôm nay bạn nghĩ gì"></textarea>
+                        </div>
+                        <div class="middle-list-select">
+                            <div class="middle-list-selectItem">
+                                <i style="color:#757A95;" class="middle-icon fas fa-video"></i>
+                            </div>
+                            <div class="middle-list-selectItem">
+                                <i style="color:#757A95;" class="middle-icon fas fa-camera"></i>
+                            </div>
+                            <div class="middle-list-selectItem">
+                                <i style="color:#757A95;" class="middle-icon far fa-laugh-beam"></i>
+                            </div>
+                        </div>
+                        <div class="middle-list-btnPost">
+                            <button class="btnPost" id="btnPost">Đăng bài viết</button>
+                        </div>
+                    </div>
+                </div>
+                <!--Story-->
+                <div class="middle-list-story">
+                    <span class="title-post">Stories</span>
+                    <div class="story-postbox" style=" padding: 10px 4px; display: flex; position: relative; left: -1%;">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="story-box">
+                                <figure>
+                                    <img class="story-img" style="transition: all 0.2s linear 0s; width: 100%; border-radius: 10px; height:200px;" src="~/Content/assets/img/thanhcong.jpg" />
+                                    <span>Add your story</span>
+                                </figure>
+                            </div>
+                            <div class="story-thumb" data-toggle="tooltip" title data-original-title="Add your story">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="story-box">
+                                <figure>
+                                    <img class="story-img" style="transition: all 0.2s linear 0s; width: 100%; border-radius: 10px; height:200px;" src="~/Content/assets/img/phuong.jpg" />
+                                    <span>Thanh Phương</span>
+                                </figure>
+                            </div>
+                            <div class="story-thumb" data-toggle="tooltip" title data-original-title="Thanh Phương">
+                                <img style="width:40px;height:40px;position:relative;left:25%;" src="~/Content/assets/img/phuong.jpg" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="story-box">
+                                <figure>
+                                    <img class="story-img" style="transition: all 0.2s linear 0s; width: 100%; border-radius: 10px; height:200px;" src="~/Content/assets/img/phat.jpg" />
+                                    <span>Trần Phát</span>
+                                </figure>
+                            </div>
+                            <div class="story-thumb" data-toggle="tooltip" title data-original-title="Trần Phát">
+                                <img style="width: 40px; height: 40px; position: relative; left: 25%;" src="~/Content/assets/img/phat.jpg" />
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="story-box">
+                                <figure>
+                                    <img class="story-img" style="transition: all 0.2s linear 0s; width: 100%; border-radius: 10px; height:200px;" src="~/Content/assets/img/hieu.jpg" />
+                                    <span>Trần Tấn Hiếu</span>
+                                </figure>
+                            </div>
+                            <div class="story-thumb" data-toggle="tooltip" title data-original-title="Trần Tấn Hiếu">
+                                <img style="width: 40px; height: 40px; position: relative; left: 25%;" src="~/Content/assets/img/hieu.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Các bài viết-->
+                @foreach (BaiViet item in Model.baiviet)
+                {
+                    @*if (item.idBaiViet === null)
+                    {
+                        <div class="middle-list-postedUser">Chưa có bài viết gì hết</div>
+                    }*@
+                    <div id="posted" class="middle-list-postedUser">
+                        <div class="middle-list-infoUser">
+                            <div>
+                                <img class="middle-list-post-img" src="~/Content/assets/img/@user.HinhAnh" alt="">
+                            </div>
+                            <div class="middle-list-infoUserActivity">
+                                <div>
+                                    <a href="@Url.Action("TrangCaNhan","Home")" style="font-weight: bold;text-decoration:none;color:black;">@user.FullName</a>
+                                </div>
+                                <div>
+                                    <i class="fas fa-globe-americas"></i>
+                                    <span style="font-size:14px;">@Html.DisplayFor(model => item.CheDo)</span> -  <span style="font-size:14px;">@Html.DisplayFor(model => item.NgayDang)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="middle-list-body">
+                            <div class="middle-list-post-text">
+                                <span>@Html.DisplayFor(model => item.Noidung)</span>
+                            </div>
+                            <!--Share bài viết (nếu có)-->
+                            @if (item.idBaiVietShare != null)
+                            {
+                                <div id="posted" class="middle-list-postedUserShare">
+                                    <div style="margin-top:-15px;" class="middle-list-infoUser">
+                                        <div>
+                                            <img class="middle-list-post-img" src="/Content/assets/img/@user.HinhAnh" alt="">
+                                        </div>
+                                        <div class="middle-list-infoUserActivity">
+                                            <div>
+                                                <span style="font-weight: bold;" id="tenuser">@user.FullName</span>
+                                            </div>
+                                            <div>
+                                                <i class="fas fa-globe-americas"></i>
+                                                <span style="font-size:14px;">@item.CheDo</span> - <span style="font-size:14px;">@item.NgayDang</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="middle-list-body">
+                                        <div class="middle-list-post-text">
+                                            <span>@item.idBaiVietShare</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="middle-list-UserContact" id="id_@item.idBaiViet">
+                            <div class="middle-list-UserContacted">
+                                <div class="middle-list-contact">
+                                    <a style="text-decoration: none;">
+                                        <i onclick="Like(this)" class="fas fa-heart"></i>
+                                        <span id="changeLike" style="cursor:pointer;" onclick="likebaiviet('@item.idBaiViet');">Thích</span>
+                                        <span id="thich">@item.LuotLike</span>
+                                    </a>
+                                </div>
+                                <div class="middle-list-contact">
+                                    <a id="binhluan" style="text-decoration: none;" href="@Url.Action("XemBaiViet/"+item.idBaiViet,"Home")">
+                                        <i class="far fa-comment"></i>
+                                        <span style="cursor:pointer;">Bình luận</span>
+                                    </a>
+                                </div>
+                                <div class="middle-list-contact">
+                                    <a class="chiase" style="text-decoration: none;" onclick="sharebaiviet('@item.idBaiViet');">
+                                        <i class="far fa-share-square"></i>
+                                        <span style="cursor:pointer;">Chia sẻ</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="middle-col3">
+                <div class="header-ketban">
+                    <div>
+                        <i class="far fa-bell"></i>
+                        <span style="font-size: 15px;font-weight: 600;">Gợi ý kết bạn</span>
+                    </div>
+                    <div>
+                        <i style="font-size:15px;font-weight:600;" class="fas fa-cog"></i>
+                    </div>
+                </div>
+                <div class="body-ketban">
+                    <ul class="list-newfr">
+                        <li class="list-newfr-item">
+                            <div>
+                                <img class="KB-img" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                                <span class="KB-name">Thanh Công</span>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary">Kết bạn</button>
+                            </div>
+                        </li>
+                        <li class="list-newfr-item">
+                            <div>
+                                <img class="KB-img" src="~/Content/assets/img/thanhcong.jpg" alt="">
+                                <span class="KB-name">Thanh Công</span>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary">Kết bạn</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Middle -->
+        <!-- Begin Right -->
+        <div class="right">
+            <div style="display:flex;justify-content: space-between;align-items: center;padding:0 10px;margin-top:30px;">
+                <span style="font-size:16px;font-weight: 600;">
+                    Trò chuyện
+                </span>
+                <i class="fas fa-sliders-h"></i>
+            </div>
+            <div style="overflow-y: hidden;">
+                <ul class="list-friend" id="listgroupchat">
+                    <!-- List-Friend javascript -->
+                </ul>
+            </div>
+        </div>
+        <!-- End Right -->
+    </content>
+    <!-- End Content -->
+    <!--Begin Chat -->
+    <div class="chat">
+        <!-- ChatBox Javascript -->
+    </div>
+    <!-- End Chat -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyB_MXMdLMs2kg8eJUuKbo18H9WU8QcTxn8",
+            authDomain: "greenzone-7a445.firebaseapp.com",
+            databaseURL: "https://greenzone-7a445-default-rtdb.firebaseio.com",
+            projectId: "greenzone-7a445",
+            storageBucket: "greenzone-7a445.appspot.com",
+            messagingSenderId: "526068222639",
+            appId: "1:526068222639:web:38eb95edef0d46bb74a25a",
+            measurementId: "G-B22LXRRMMZ"
+        };
+        firebase.initializeApp(config);
+
+        var database = firebase.database();
+        database.ref("Groups").on('child_added', function (snapshot) {
+            var group = snapshot.val();
+            loadGroup(group.idGroup, group.tenGroup, group.idMesCuoi)
+
+        });
+        database.ref("Groups").on('child_changed', function (snapshot) {
+            var group = snapshot.val();
+            hienthichat(group.idGroup);
+
+        });
+        function loadGroup(id, name, text) {
+            $(".list-friend").append('<li class="list-friend-item" id="item_' + id + '" onclick="hienthichat(\'' + id + '\')">\
+                                           <img class="img-list" src="https://firebasestorage.googleapis.com/v0/b/greenzone-7a445.appspot.com/o/hieu.jpg?alt=media&token=31bc3e6e-06db-4e00-b7ae-e2375ce117b0" alt="">\
+                                          <span style="font-size:16px;font-weight: 600;">'+ name + '</span>\
+                                            </li>');
+        }
+        function hienthichat(idgroup) {
+            database.ref("Groups/" + idgroup).on('value', function (snapshot) {
+                var group = snapshot.val();
+                var Noidung1 = document.getElementsByClassName("chat");
+                Noidung1.innerHTML = "";
+                $(".chat").append('<div class="chat-header">\
+                        <div>\
+                      <img style="width:40px;height:40px;border-radius: 30px;" src="https://firebasestorage.googleapis.com/v0/b/greenzone-7a445.appspot.com/o/hieu.jpg?alt=media&token=31bc3e6e-06db-4e00-b7ae-e2375ce117b0" alt="">\
+                       <span style="font-size:16px;font-weight: 600;color:white;" id="groupname"></span>\
+                          </div>\
+                          <span><i style="font-size:16px;font-weight: 600;color:white;padding-right:3px" class="icon-close fas fa-times"></i></span>\
+                        </div>\
+                        <div class="chat-body">\
+                          <div class="chat-list" id="DoanChat"></div>\
+                           </div>\
+                        <div class="chat-footer">\
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Nhập tin nhắn" class="chat-input"></textarea>\
+                     </div>');
+                $("#groupname").text(group.tenGroup);
+                $(".chat").addClass("open");
+                $(".icon-close").on("click", function () {
+                    $(".chat").removeClass("open");
+                })
+            });
+            XoaND();
+            database.ref("Messages/" + idgroup).on('child_added', function (snapshot) {
+                var mess = snapshot.val();
+                loadMess(mess.usercreate, mess.text);
+                // database.ref("Users").once('value', (snapshot) => {
+                // snapshot.forEach((childSnapshot) => {
+                //     var childKey = childSnapshot.key;
+                //     var childData = childSnapshot.val();
+                //     if(childKey==mess.usercreate)
+                //         loadMess(childData.ten, mess.text);
+                // })
+            });
+            //});
+        }
+        function loadMess(name, text) {
+            if (name == "0397330562")
+                $('<div class="to"/>').prepend($('<span class="msg-to"/>').text(text)).appendTo($("#DoanChat"));
+            else
+                $('<div class="from"/>').prepend($('<span class="msg-from"/>').text(text)).appendTo($("#DoanChat"));
+            $(".chat-body")[0].scrollTop = $(".chat-body")[0].scrollHeight;
+        }
+        function XoaND() {
+            var Noidung1 = document.getElementById("DoanChat");
+            Noidung1.innerHTML = "";
+        }
+    </script>
+    <script>
+        //--------------------------------------------------------------JS Xử lý------------------------------------------------------------
+
+        //Overlay đăng bài viết
+
+        $(document).ready(function () {
+            $(".middle-list-post").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".middle-list-post").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+
+        // Like thả tim
+        function Like(x) {
+            x.classList.toggle('middle-list-reactLove');
+        };
+
+        //Màn hình chờ
+        setTimeout(() => {
+            var xoa = document.querySelector('.wavy-wraper');
+            xoa.style.display = 'none';
+        }, 3000);
+
+
+        //Click vào menu bên trái
+        var toggle = document.querySelector(".toggle");
+        toggle.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        });
+
+        //Open/Close Menu
+        $(".toggle").on("click", function () {
+            $(".left").addClass("open");
+        });
+        $(".close-Menu").on("click", function () {
+            $(".left").removeClass("open");
+        });
+
+
+        //Open/Close ChatBox
+        $(".list-friend-item").on("click", function () {
+            $(".chat").addClass("open");
+        });
+        $(".icon-close").on("click", function () {
+            $(".chat").removeClass("open");
+        });
+
+        //Add Class menu
+        $(".toggle").on("click", function () {
+            $(".left").addClass("add");
+        })
+        $(".close-Menu").on("click", function () {
+            $(".left").removeClass("add");
+        })
+    </script>
+
+    <!-- Sự kiện Click / và biến mất -->
+    <script>
+        $("#icon-bell").click(function () {
+            $(".post-overlay").addClass("index");
+        })
+        $("#user-kb").click(function () {
+            $(".post-overlay").addClass("index");
+        })
+        $("#icon-tin-nhan").click(function () {
+            $(".post-overlay").addClass("index");
+        })
+        $(".post-overlay").not("#icon-bell").click(function () {
+            $(".post-overlay").removeClass("index");
+        })
+
+
+        // Icon-bell
+        $(document).ready(function () {
+            $("#icon-bell").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".hover-thong-bao").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+        $(document).ready(function () {
+            $("#icon-bell").click(function (event) {
+                event.stopPropagation();
+                $(".hover-thong-bao").fadeIn(500);
+                $(".hover-ket-ban").fadeOut(500);
+                $(".hover-tin-nhan").fadeOut(500);
+            });
+            $(".hover-thong-bao").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".hover-thong-bao").fadeOut(500);
+        });
+
+
+
+        // User KB
+        $(document).ready(function () {
+            $("#user-kb").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".hover-ket-ban").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+        $(document).ready(function () {
+            $("#user-kb").click(function (event) {
+                event.stopPropagation();
+                $(".hover-ket-ban").fadeIn(500);
+                $(".hover-tin-nhan").fadeOut(500);
+            });
+            $(".hover-ket-ban").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".hover-ket-ban").fadeOut(500);
+        });
+
+        // Icon-tin-nhan
+        $(document).ready(function () {
+            $("#icon-tin-nhan").click(function (event) {
+                event.stopPropagation();
+                $(".post-overlay").fadeIn(500);
+            });
+            $(".hover-tin-nhan").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".post-overlay").fadeOut(500);
+        });
+
+        $(document).ready(function () {
+            $("#icon-tin-nhan").click(function (event) {
+                event.stopPropagation();
+                $(".hover-tin-nhan").fadeIn(500);
+            });
+            $(".hover-tin-nhan").on("click", function (event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function () {
+            $(".hover-tin-nhan").fadeOut(500);
+        });
+    </script>
+
+
+    <div id="loading" style="display:none;">
+        <img style="width: 69px; height: 89px; position: absolute; top: 50%; left: 50%; padding: 2px;" src="~/Content/assets/img/loading.gif" />
+        <br />
+        Chờ chút nhe...
+    </div>
+    <!---------------------------------------------ĐĂNG BÀI VIẾT------------------------------------------------>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var postbaiviet = document.querySelector("#btnPost")
+        // Post bài viết
+        postbaiviet.onclick = function () {
+            var emp = $('#textarea').val();
+            var select = $('#selectCheDo').val();
+            $.ajax({
+                url: '/Home/DangBaiViet',
+                type: 'POST',
+                datatype: 'JSON',
+                contentType: 'application/json;charset=utf-8;',
+                data: JSON.stringify({ noidung: emp, chedo: select }),
+                async: true,
+                success: function (res) {
+                    if (res == 1) {
+                        location.reload();
+                    }
+                    else
+                        alert('Thêm  không thành công');
+                }
+            });
+        }
+    </script>
+    <!---------------------------------------------ĐĂNG BÀI VIẾT------------------------------------------------>
+    <!-------------------------------------LIKE & CMT & SHARE BÀI VIẾT------------------------------------------->
+    <!--LIKE BÀI VIẾT-->
+    <script>
+        function likebaiviet(id) {
+            var like = 0;
+            like += 1;
+            var thich = $("#thich").val().innerHTML = like;
+            $.ajax({
+                url: '/Home/LikeBaiViet',
+                type: 'POST',
+                datatype: 'JSON',
+                contentType: 'application/json;charset=utf-8;',
+                data: JSON.stringify({ luotlike: like, idbaiviet: id }),
+                async: true,
+                success: function (res) {
+                    if (res == 1) {
+                        location.reload();
+                    }
+                    else
+                        alert('Thêm  không thành công');
+                }
+            });
+        }
+    </script>
+
+    <!--------------------------------------------SHARE BÀI VIẾT------------------------------------------------->
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 style="text-align:center;width:100%;" class="modal-title">Chia sẻ bài viết</h5>
+                </div>
+                <div>
+                    <div style="display:flex;align-items:center;">
+                        <div>
+                            <img class="middle-list-post-img" src="/Content/assets/img/@user.HinhAnh" alt="">
+                        </div>
+                        <div style="margin-left:-20px;">
+                            <div>
+                                <span style="font-weight: bold;" id="tenuser">@user.FullName</span>
+                            </div>
+                            <div>
+                                <select id="chedoshare">
+                                    <option value="Công khai">Công khai</option>
+                                    <option value="Bạn bè">Bạn bè</option>
+                                    <option value="Chỉ mình tôi">Chỉ mình tôi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div style=" padding: 10px 18px; margin-top: 10px;">
+                        <input id="noidungshare" style="width: 100%; border: none; outline: none;" type="text" placeholder="@user.FullName ơi , bạn đang nghĩ gì thế?" />
+                    </div>
+                </div>
+                <div id="body-baiviet" class="modal-body">
+                    <div id="posted" class="middle-list-postedUserShare">
+                        <div style="margin-top:-15px;" class="middle-list-infoUser">
+                            <div>
+                                <img class="middle-list-post-img" src="/Content/assets/img/@user.HinhAnh" alt="">
+                            </div>
+                            <div class="middle-list-infoUserActivity">
+                                <div>
+                                    <span style="font-weight: bold;" id="tenuser">@user.FullName</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-globe-americas"></i>
+                                    <span id="chedobaiviet" style="font-size:14px;"></span> - <span id="ngaydang" style="font-size:14px;"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="middle-list-body">
+                            <div class="middle-list-post-text">
+                                <span id="noidungbaiviet"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="submitshare" style="width:100%;" type="button" class="btn btn-primary">Chia sẻ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setform(baiviet) {
+            $("#chedobaiviet").text(baiviet.CheDo);
+            $("#ngaydang").text(baiviet.NgayDang);
+            $("#noidungbaiviet").text(baiviet.Noidung);
+            $('#submitshare').data('idBaiViet', baiviet.idBaiViet);
+            var sharebaiviet = $('#submitshare').data('idBaiViet');
+            console.log("abc"+baiviet.idBaiViet);
+            console.log("share"+sharebaiviet);
+
+        }
+    </script>
+    <script>
+        function sharebaiviet(id) {
+            console.log(id);
+            $.ajax(
+                {
+                    url: "/Home/ShareBaiViet/" + id,
+                    type: "GET",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        /*console.log(result);*/
+                        setform(result);
+                    },
+                    error: function (errormessage) {
+                        alert(errormessage.responseText);
+                    }
+                });
+
+
+            //Mở Modal
+            $(document).ready(function () {
+                $(".chiase").click(function (event) {
+                    event.stopPropagation();
+                    $(".modal").fadeIn(500);
+                });
+                $(".modal-content").on("click", function (event) {
+                    event.stopPropagation();
+                });
+            });
+            $(document).on("click", function () {
+                $(".modal").fadeOut(500);
+            });
+        }
+
+
+        //Submit chia sẻ bài viết
+        var submitshare = document.querySelector("#submitshare");
+        submitshare.onclick = function (baiviet) {
+            var sharebaiviet = $('#submitshare').data('idBaiViet');
+            var chedoshare = $("#chedoshare").val();
+             var noidungshare = $("#noidungshare").val();
+             $.ajax({
+                 url: '/Home/PostShareBaiViet',
+                 type: 'POST',
+                 datatype: 'JSON',
+                 contentType: 'application/json;charset=utf-8;',
+                 data: JSON.stringify({ noidung: noidungshare, chedo: chedoshare, idbaiviet: sharebaiviet }),
+                 async: true,
+                 success: function (res) {
+                     if (res == 1) {
+                         location.reload();
+                    }
+                    else
+                        alert('Thêm  không thành công');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
